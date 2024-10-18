@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Fligh11path : MonoBehaviour
 {
     public GameObject bulletPrefab;       // Bullet prefab to instantiate
     public Transform bulletSpawnPoint;    // The point on the player's gun where the bullet will be fired from

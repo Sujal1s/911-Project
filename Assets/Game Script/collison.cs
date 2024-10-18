@@ -10,6 +10,7 @@ public class PlaneCollision : MonoBehaviour
         if (collision.gameObject.gameObject)
         {
             Destroy(collision.gameObject); // Destroy the tower
+            
         }
     }
 }
