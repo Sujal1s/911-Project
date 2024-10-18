@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class binladenmovement : MonoBehaviour
 {
+   public  float speed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,11 @@ public class binladenmovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            moveX = -5.0f * Time.deltaTime;
+            moveX = -speed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            moveX = 5.0f * Time.deltaTime;
+            moveX = speed * Time.deltaTime;
         }
 
         transform.Translate(moveX, 0, 0);

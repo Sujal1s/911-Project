@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Fligh11path : MonoBehaviour
@@ -10,11 +9,7 @@ public class Fligh11path : MonoBehaviour
     void Update()
     {
         userInput();
-        
-        if (transform.position.y>5f  )
-        {
-            Destroy(this.gameObject);
-        }
+        CheckIfOutOfScreen();
     }
 
     void userInput()
@@ -25,7 +20,7 @@ public class Fligh11path : MonoBehaviour
             Debug.Log("Mouse Clicked");
             FireBullet();
         }
-    }   
+    }
 
     void FireBullet()
     {
@@ -35,19 +30,27 @@ public class Fligh11path : MonoBehaviour
 
         // Apply velocity to the bullet to make it move in the direction the gun is facing
         bulletRb.velocity = bulletSpawnPoint.up * bulletSpeed;
-
-       
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("on trigger called");
-        if (collision.gameObject.Equals("Enemy"))  // Check if the collided object has the "Enemy" tag
+        if (collision.gameObject.CompareTag("Enemy"))  // Check if the collided object has the "Enemy" tag
         {
             Debug.Log("Enemy dead");
             Destroy(collision.gameObject);   // Destroy the enemy
             Destroy(gameObject);             // Destroy the bullet (instantiated bullet object)
+        }
+    }
+
+    void CheckIfOutOfScreen()
+    {
+        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
+        bool isOutOfScreen = screenPoint.x < 0 || screenPoint.x > 1 || screenPoint.y < 0 || screenPoint.y > 1;
+
+        if (isOutOfScreen)
+        {
+            Destroy(gameObject);  // Destroy the object when it goes out of the screen
         }
     }
 }
