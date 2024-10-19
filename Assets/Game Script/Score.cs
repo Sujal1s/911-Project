@@ -26,6 +26,6 @@ public class collison : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Maqsad: " + score;
     }
 }
