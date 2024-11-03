@@ -43,7 +43,7 @@ namespace Game_Script
             if (bulletRb != null)
             {
                 // Apply velocity to the bullet to make it move in the direction the gun is facing
-                bulletRb.velocity = bulletSpawnPoint.up * bulletSpeed;
+                bulletRb.linearVelocity = bulletSpawnPoint.up * bulletSpeed;
             }
             else
             {
