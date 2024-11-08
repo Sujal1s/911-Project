@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseOnTowerHit : MonoBehaviour
 {
@@ -14,8 +15,8 @@ public class PauseOnTowerHit : MonoBehaviour
             Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
             if (screenPoint.y < 0)
             {
-                Debug.Log("Tower hit the bottom edge of the screen. Pausing game.");
-                Time.timeScale = 0;  // Pause the game
+                Debug.Log("Tower hit the bottom edge of the screen. Redirecting to UI scene.");
+                SceneManager.LoadScene("Pause menu");  // Replace "UIScene" with the name of your UI scene
             }
         }
     }
